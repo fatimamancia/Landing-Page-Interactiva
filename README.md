@@ -20,7 +20,7 @@ la gastronomía tradicional de El Salvador. 😋
 - Publicación en GitHub Pages
 
 ## Sitio publicado
-(Pegar aquí la URL del sitio)
+(https://fatimamancia.github.io/SaborSV/)
 
 ## Autor
 Proyecto realizado con fines educativos por Fátima Gómez Mancia.
