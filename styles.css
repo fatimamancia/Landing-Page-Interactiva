@@ -1,0 +1,748 @@
+/* ==========================================
+   Sabor Salvadoreño — styles.css
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cafe: #5c3317;
+  --cafe-claro: #8b5e3c;
+  --naranja: #e07b39;
+  --crema: #fdf6ee;
+  --blanco: #ffffff;
+  --texto: #333333;
+  --gris: #666666;
+  --borde: #e5d9cc;
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-texto: 'Lato', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--texto);
+  background: var(--blanco);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Utilidades ── */
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.etiqueta {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--naranja);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.etiqueta.centrada {
+  text-align: center;
+}
+
+.centrado {
+  text-align: center;
+}
+
+h2 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--cafe);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+h2 em {
+  font-style: italic;
+  color: var(--naranja);
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--borde);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.con-sombra {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.3rem;
+  color: var(--cafe);
+  font-weight: 600;
+}
+
+.logo span {
+  color: var(--naranja);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.nav-menu a {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--gris);
+  transition: color 0.2s;
+  text-transform: uppercase;
+}
+
+.nav-menu a:hover {
+  color: var(--naranja);
+}
+
+/* Hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--cafe);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.abierto span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.abierto span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.abierto span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+.hero {
+  min-height: 100vh;
+  padding-top: 64px;
+  background-color: var(--cafe);
+  background-image:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.55)),
+    url("https://raw.githubusercontent.com/fatimamancia/images/main/20260330_060957.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hero-contenido h1 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-desc {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.hero-subtag {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--naranja);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-contenido h1 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--blanco);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-contenido h1 em {
+  font-style: italic;
+  color: #f4c882;
+}
+
+.hero-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-principal {
+  display: inline-block;
+  background: var(--naranja);
+  color: var(--blanco);
+  padding: 14px 36px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-principal:hover {
+  background: #c96a28;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   NOSOTROS
+   ========================================== */
+.nosotros {
+  padding: 90px 0;
+  background: var(--crema);
+}
+
+.nosotros-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* imagen de los chorizos — CORREGIDA */
+.img-decorativa {
+  background: var(--cafe);
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/chorizos.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-decorativa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(224, 123, 57, 0.3), transparent 60%),
+    radial-gradient(circle at 70% 20%, rgba(244, 200, 130, 0.15), transparent 50%);
+}
+
+.img-marco {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+}
+
+.img-texto {
+  font-size: 5rem;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.img-label {
+  font-family: var(--fuente-titulo);
+  font-size: 1.3rem;
+  color: var(--crema);
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Texto */
+.nosotros-texto p {
+  color: var(--gris);
+  margin-bottom: 16px;
+}
+
+.valores {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.valores li {
+  font-size: 15px;
+  color: var(--cafe-claro);
+  font-weight: 700;
+}
+
+/* ==========================================
+   SERVICIOS / PLATILLOS
+   ========================================== */
+.servicios {
+  padding: 90px 0;
+  background: var(--blanco);
+}
+
+.subtitulo-seccion {
+  text-align: center;
+  color: var(--gris);
+  max-width: 500px;
+  margin: 0 auto 50px;
+  font-size: 15px;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tarjeta {
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 0 0 28px 0;
+  /* Ajustado para albergar la imagen arriba del todo */
+  text-align: center;
+  background: var(--crema);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
+}
+
+.tarjeta:hover {
+  box-shadow: 0 8px 24px rgba(92, 51, 23, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Propiedades de renderizado para las fotos de los platillos */
+.img-platillo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--borde);
+}
+
+/* Vinculación Directa (Raw) de Imágenes desde tu GitHub */
+.pupusas-img {
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/pupusas.png");
+}
+
+.tamales-img {
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/tamales.jpg");
+}
+
+.sopa-img {
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/sopa.jpg");
+}
+
+.yuca-img {
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/yuca%20sancochada.png");
+}
+
+.casamiento-img {
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/Gemini_Generated_Image_95hzvw95hzvw95hz.png");
+}
+
+.atol-img {
+  background-image: url("https://raw.githubusercontent.com/fatimamancia/images/main/atole.jpg");
+}
+
+/* Espaciados internos para los textos de la tarjeta */
+.tarjeta h3,
+.tarjeta p,
+.tarjeta .precio {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.tarjeta h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.2rem;
+  color: var(--cafe);
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  font-size: 14px;
+  color: var(--gris);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.precio {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--naranja);
+  background: rgba(224, 123, 57, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ==========================================
+   CONTACTO
+   ========================================== */
+.contacto {
+  padding: 90px 0;
+  background: var(--crema);
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contacto-info p {
+  color: var(--gris);
+  margin-bottom: 24px;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-items p {
+  font-size: 15px;
+  color: var(--cafe-claro);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Formulario */
+.formulario {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--cafe-claro);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 10px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  font-family: var(--fuente-texto);
+  font-size: 15px;
+  color: var(--texto);
+  background: var(--crema);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--naranja);
+}
+
+.campo.campo-error input,
+.campo.campo-error select,
+.campo.campo-error textarea {
+  border-color: #c0392b;
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.campo select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23666'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.campo select option {
+  background: #fff;
+}
+
+/* Checkbox */
+.campo-check {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gris);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.check-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--naranja);
+  flex-shrink: 0;
+}
+
+.error {
+  font-size: 12px;
+  color: #c0392b;
+  min-height: 16px;
+  display: block;
+}
+
+/* Botón */
+#btnEnviar {
+  background: var(--cafe);
+  color: var(--blanco);
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-family: var(--fuente-texto);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#btnEnviar:hover {
+  background: var(--cafe-claro);
+}
+
+#btnEnviar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.exito {
+  background: #eafbea;
+  border: 1px solid #a8d5a2;
+  border-radius: 4px;
+  padding: 14px 18px;
+  color: #2e7d32;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+  background: var(--cafe);
+  padding: 48px 0 24px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  color: var(--blanco);
+  margin-bottom: 8px;
+}
+
+.footer-logo span {
+  color: #f4c882;
+}
+
+.footer-marca p:last-child {
+  font-size: 14px;
+}
+
+.footer-redes p {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--blanco);
+  margin-bottom: 12px;
+}
+
+.redes-links {
+  display: flex;
+  gap: 20px;
+}
+
+.redes-links a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s;
+}
+
+.redes-links a:hover {
+  color: #f4c882;
+}
+
+.footer-creditos {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 860px) {
+
+  .nosotros-grid,
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .nosotros-imagen {
+    order: -1;
+  }
+
+  .img-decorativa {
+    aspect-ratio: 16/7;
+  }
+
+  .tarjetas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--blanco);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--borde);
+    padding: 8px 0;
+  }
+
+  .nav-menu.visible {
+    display: flex;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    padding: 24px 20px;
+  }
+
+  .footer-creditos {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-contenido {
+    flex-direction: column;
+    gap: 28px;
+  }
+}
